@@ -1,0 +1,14 @@
+D:\Intermech\001_Пользовательские коллекции\Task3\Task3\bin\Debug\net8.0\Task3.exe
+D:\Intermech\001_Пользовательские коллекции\Task3\Task3\bin\Debug\net8.0\Task3.deps.json
+D:\Intermech\001_Пользовательские коллекции\Task3\Task3\bin\Debug\net8.0\Task3.runtimeconfig.json
+D:\Intermech\001_Пользовательские коллекции\Task3\Task3\bin\Debug\net8.0\Task3.dll
+D:\Intermech\001_Пользовательские коллекции\Task3\Task3\bin\Debug\net8.0\Task3.pdb
+D:\Intermech\001_Пользовательские коллекции\Task3\Task3\obj\Debug\net8.0\Task3.GeneratedMSBuildEditorConfig.editorconfig
+D:\Intermech\001_Пользовательские коллекции\Task3\Task3\obj\Debug\net8.0\Task3.AssemblyInfoInputs.cache
+D:\Intermech\001_Пользовательские коллекции\Task3\Task3\obj\Debug\net8.0\Task3.AssemblyInfo.cs
+D:\Intermech\001_Пользовательские коллекции\Task3\Task3\obj\Debug\net8.0\Task3.csproj.CoreCompileInputs.cache
+D:\Intermech\001_Пользовательские коллекции\Task3\Task3\obj\Debug\net8.0\Task3.dll
+D:\Intermech\001_Пользовательские коллекции\Task3\Task3\obj\Debug\net8.0\refint\Task3.dll
+D:\Intermech\001_Пользовательские коллекции\Task3\Task3\obj\Debug\net8.0\Task3.pdb
+D:\Intermech\001_Пользовательские коллекции\Task3\Task3\obj\Debug\net8.0\Task3.genruntimeconfig.cache
+D:\Intermech\001_Пользовательские коллекции\Task3\Task3\obj\Debug\net8.0\ref\Task3.dll

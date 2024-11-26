@@ -1,0 +1,14 @@
+D:\Intermech\001_Пользовательские коллекции\Task2\Task2\bin\Debug\net8.0\Task2.exe
+D:\Intermech\001_Пользовательские коллекции\Task2\Task2\bin\Debug\net8.0\Task2.deps.json
+D:\Intermech\001_Пользовательские коллекции\Task2\Task2\bin\Debug\net8.0\Task2.runtimeconfig.json
+D:\Intermech\001_Пользовательские коллекции\Task2\Task2\bin\Debug\net8.0\Task2.dll
+D:\Intermech\001_Пользовательские коллекции\Task2\Task2\bin\Debug\net8.0\Task2.pdb
+D:\Intermech\001_Пользовательские коллекции\Task2\Task2\obj\Debug\net8.0\Task2.GeneratedMSBuildEditorConfig.editorconfig
+D:\Intermech\001_Пользовательские коллекции\Task2\Task2\obj\Debug\net8.0\Task2.AssemblyInfoInputs.cache
+D:\Intermech\001_Пользовательские коллекции\Task2\Task2\obj\Debug\net8.0\Task2.AssemblyInfo.cs
+D:\Intermech\001_Пользовательские коллекции\Task2\Task2\obj\Debug\net8.0\Task2.csproj.CoreCompileInputs.cache
+D:\Intermech\001_Пользовательские коллекции\Task2\Task2\obj\Debug\net8.0\Task2.dll
+D:\Intermech\001_Пользовательские коллекции\Task2\Task2\obj\Debug\net8.0\refint\Task2.dll
+D:\Intermech\001_Пользовательские коллекции\Task2\Task2\obj\Debug\net8.0\Task2.pdb
+D:\Intermech\001_Пользовательские коллекции\Task2\Task2\obj\Debug\net8.0\Task2.genruntimeconfig.cache
+D:\Intermech\001_Пользовательские коллекции\Task2\Task2\obj\Debug\net8.0\ref\Task2.dll
