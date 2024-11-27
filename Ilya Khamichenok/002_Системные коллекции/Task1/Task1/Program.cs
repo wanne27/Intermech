@@ -1,34 +1,39 @@
 ﻿using System.Collections.Specialized;
-
-var purhases = new PurchaseCollection();
-
-purhases.Add("Ilya", "Producti");
-purhases.Add("Vlad", "Napitki");
-purhases.Add("Vlad", "Producti");
-purhases.Add("Ilya", "Napitki");
-
-var names = purhases.GetNamesByCategory("Producti");
-var categories = purhases.GetCategoriesByName("Vlad");
-
-foreach (var name in names)
+try
 {
-    Console.WriteLine(name);
+    var purhases = new PurchaseCollection();
+
+    purhases.Add("Ilya", "Producti");
+    purhases.Add("Vlad", "Napitki");
+    purhases.Add("Vlad", "Producti");
+    purhases.Add("Ilya", "Napitki");
+
+    var names = purhases.GetNamesByCategory("Producti");
+    var categories = purhases.GetCategoriesByName("Vlad");
+
+    foreach (var name in names)
+    {
+        Console.WriteLine(name);
+    }
+
+    foreach (var category in categories)
+    {
+        Console.WriteLine(category);
+    }
+}
+catch(Exception ex)
+{
+    Console.WriteLine(ex.Message);
 }
 
-foreach (var category in categories)
-{
-    Console.WriteLine(category);
-}
 
 class PurchaseCollection
 {
     NameValueCollection NameToCategoryCollection = new NameValueCollection();
-    NameValueCollection CategoryToNameCollection = new NameValueCollection();
 
     public void Add(string name, string category)
     {
         NameToCategoryCollection.Add(name, category);
-        CategoryToNameCollection.Add(category, name);
     }
 
     public string[] GetCategoriesByName(string name)
@@ -45,17 +50,24 @@ class PurchaseCollection
         }
     }
 
-    public string[] GetNamesByCategory(string category)
+    public IEnumerable<string> GetNamesByCategory(string category)
     {
-        var categories = CategoryToNameCollection.GetValues(category);
-
-        if (categories != null)
+        foreach (var key in NameToCategoryCollection.AllKeys)
         {
-            return categories;
-        }
-        else
-        {
-            throw new ArgumentException("No names found");
+            if (key == null)
+            {
+                yield break;
+            }
+            else
+            {
+                foreach (var categoryByKey in NameToCategoryCollection.GetValues(key))
+                {
+                    if (categoryByKey != null && categoryByKey == category)
+                    {
+                        yield return key;
+                    }
+                }
+            }            
         }
     }
 }
