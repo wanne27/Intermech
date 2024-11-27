@@ -4,31 +4,42 @@ namespace Task3
 {
     internal class AccountCollection : IEnumerable
     {
-        private List<(int, double)> Accounts = new List<(int, double)> ();
+        private List<KeyValue> accounts = new List<KeyValue> ();
 
         public void Add(int companyAccount, double availableAmount)
         {
-            Accounts.Add((companyAccount, availableAmount));
+            accounts.Add(new KeyValue(companyAccount, availableAmount));
         }
 
-        public List<(int,double)> GetByInt(int account)
+        public List<KeyValue> GetByInt(int account)
         {
-            return Accounts.Where(a => a.Item1 == account).ToList();
+            return accounts.Where(a => a.Key == account).ToList();
         }
 
-        public List<(int, double)> GetByDouble(Double amount)
+        public List<KeyValue> GetByDouble(double amount)
         {
-            return Accounts.Where(a => a.Item2 == amount).ToList();
+            return accounts.Where(a => a.Value == amount).ToList();
         }
 
-        public void Remove((int, double) accountAmount)
+        public bool Remove(int companyAccount, double availableAmount)
         {
-            Accounts.Remove(accountAmount);
+            var account = accounts.Where(a => a.Key == companyAccount && a.Value == availableAmount).FirstOrDefault();
+
+            if (account != null)
+            {
+                accounts.Remove(account);
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         public IEnumerator GetEnumerator()
         {
-           return Accounts.GetEnumerator();
+           return accounts.GetEnumerator();
         }
     }
 }
+

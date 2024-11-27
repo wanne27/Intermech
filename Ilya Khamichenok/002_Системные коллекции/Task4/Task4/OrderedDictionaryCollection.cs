@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Collections.Specialized;
 
 namespace Task4
 {
@@ -22,6 +23,19 @@ namespace Task4
             }
         }
 
+        public void Insert(int index, TKey key, TValue value)
+        {
+            if (keysList.Contains(key))
+            {
+                throw new Exception("Such a key already exists");
+            }
+            else
+            {
+                keysList.Insert(index, key);
+                dictionary[key] = value;
+            }
+        }
+
         public TValue GetValueByKey(TKey key)
         {
             var value = dictionary[key];
@@ -36,10 +50,8 @@ namespace Task4
             }
         }
 
-        public void Remove()
+        public void Remove(TKey key)
         {
-            var key = keysList.LastOrDefault();
-
             if (key == null)
             {
                 throw new Exception("Collection is Empty");
@@ -75,6 +87,17 @@ namespace Task4
             {
                 throw new Exception("The index doesn't exist");
             }
+        }
+
+        public bool Contains(TKey key)
+        {
+            return keysList.Contains(key);
+        }
+
+        public void Clear()
+        {
+            keysList.Clear();
+            dictionary.Clear();
         }
 
         public IEnumerator<KeyValuePair<TKey, TValue>> GetEnumerator()
