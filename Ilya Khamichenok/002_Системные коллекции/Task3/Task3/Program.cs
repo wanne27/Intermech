@@ -14,7 +14,7 @@
             accountCollection.Add(5, 2.43);
             accountCollection.Add(1254, 35.113);
             accountCollection.Add(215, 12.323);
-            accountCollection.Remove(5, 2.43);
+            accountCollection.Remove(5);
 
             var account = accountCollection.GetByDouble(2.43);
             var amount = accountCollection.GetByInt(215);

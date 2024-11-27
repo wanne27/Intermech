@@ -21,19 +21,17 @@ namespace Task3
             return accounts.Where(a => a.Value == amount).ToList();
         }
 
-        public bool Remove(int companyAccount, double availableAmount)
+        public bool Remove(int companyAccount)
         {
-            var account = accounts.Where(a => a.Key == companyAccount && a.Value == availableAmount).FirstOrDefault();
+            var account = accounts.Where(a => a.Key == companyAccount).FirstOrDefault();
 
             if (account != null)
             {
                 accounts.Remove(account);
                 return true;
             }
-            else
-            {
-                return false;
-            }
+
+            return false;
         }
 
         public IEnumerator GetEnumerator()
