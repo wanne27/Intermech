@@ -7,7 +7,7 @@ namespace Task3
     {
         static void Main(string[] args)
         {
-            var searchFile = new SearchFile().SearchPath("D:\\", "content.txt");
+            var searchFile =  SearchFile.SearchPath("D:\\", "content.txt");
 
             using (FileStream fstream = new FileStream(searchFile, FileMode.Open))
             {
