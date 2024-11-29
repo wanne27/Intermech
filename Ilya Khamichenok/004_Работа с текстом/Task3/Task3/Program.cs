@@ -21,7 +21,7 @@ namespace Task3
             {
                 foreach(var str in stringList)
                 {
-                   sw.WriteLine(Regex.Replace(str, pattern, "ГАВ"));
+                   sw.WriteLine(Regex.Replace(str, pattern, "ГАВ", RegexOptions.IgnoreCase));
                 }   
             }
         }

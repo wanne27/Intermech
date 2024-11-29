@@ -18,19 +18,19 @@ namespace Task2
 
             using (TextWriter tw = new StreamWriter("D:\\SavedList.txt"))
             {
-                foreach (var matche in matchesURL)
+                foreach (var URL in matchesURL)
                 {
-                    tw.WriteLine(matche);
+                    tw.WriteLine(URL);
                 }
 
-                foreach (var matche in matchesNumber)
+                foreach (var number in matchesNumber)
                 {
-                    tw.WriteLine(matche);
+                    tw.WriteLine(number);
                 }
 
-                foreach (var matche in matchesEmail)
+                foreach (var email in matchesEmail)
                 {
-                    tw.WriteLine(matche);
+                    tw.WriteLine(email);
                 }
             }
         }

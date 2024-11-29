@@ -1,46 +1,42 @@
-﻿using System.Text.RegularExpressions;
-
-namespace TaskDop
+﻿namespace TaskDop
 {
     internal class Program
     {
         static void Main(string[] args)
         {
-            var loginPattern = @"^[a-zA-Z]+$";
-            var passwordPattern = @"^(?=.*\d)(?=.*[a-zA-Z])(?!.*\s).*$";
-            var login = "";
-            var password = "";
+            var flag = true;
 
-            while (true)
+            while (flag)
             {
                 Console.Write("Input Login: ");
-                login = Console.ReadLine();
+                var login = Console.ReadLine();
 
-                if (!Regex.IsMatch(login, loginPattern))
+                if (SignUpValidation.ValidateLogin(login))
+                {
+                    flag = false;
+                }
+                else
                 {
                     Console.WriteLine("Use latin characters!");
                 }
-                else
-                {                    
-                    break;
-                }                
             }
 
-            while (true)
+            flag = true;
+
+            while (flag)
             {
                 Console.Write("Input Password: ");
-                password = Console.ReadLine();
+                var password = Console.ReadLine();
 
-                if (!Regex.IsMatch(password, passwordPattern))
+                if (SignUpValidation.VerifyPassword(password))
+                {
+                    flag = false;
+                }
+                else
                 {
                     Console.WriteLine("Use latin characters and digitals");
                 }
-                else
-                {
-                    break;
-                }
             }
-
         }
     }
 }
