@@ -13,7 +13,9 @@ namespace Task3
                 if(reader.NodeType == XmlNodeType.Element)
                 {
                     while (reader.MoveToNextAttribute())
+                    {
                         Console.WriteLine(reader.Value);
+                    }
                 }
             }
         }
