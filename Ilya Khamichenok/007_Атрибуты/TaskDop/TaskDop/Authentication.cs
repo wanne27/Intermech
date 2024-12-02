@@ -1,18 +1,17 @@
-﻿namespace TaskDop
+﻿using System.Reflection;
+
+namespace TaskDop
 {
     public static class Authentication
     {
         public static bool TryAccess(object obj, Access access)
         {
             var type = obj.GetType();
-            var attributes = type.GetCustomAttributes(false);
+            var attribute = type.GetCustomAttribute<AccessLevelAttribute>();
 
-            foreach (var attribute in attributes) 
+            if (attribute != null && attribute.Access == access)
             {
-                if (attribute is AccessLevelAttribute accessLevel && accessLevel.Access == access) 
-                {
-                    return true;
-                }
+                return true;
             }
 
             return false;
