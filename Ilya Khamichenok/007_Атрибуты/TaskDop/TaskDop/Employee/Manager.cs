@@ -1,6 +1,6 @@
 ﻿namespace TaskDop.Employee
 {
-    [AccessLevel(Access.lvl3)]
+    [AccessLevel(8)]
     public class Manager
     {
     }

@@ -2,8 +2,8 @@
 {
     public class AccessLevelAttribute : Attribute
     {
-        private Access _access;
-        public Access Access
+        private int _access;
+        public int Access
         {
             get
             {
@@ -11,7 +11,7 @@
             }
         }
 
-        public AccessLevelAttribute(Access access)
+        public AccessLevelAttribute(int access)
         {
             _access = access;
         }

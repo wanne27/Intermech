@@ -7,7 +7,7 @@ namespace TaskDop
         static void Main(string[] args)
         {
             var manager = new Manager();
-            var isAccess = Authentication.TryAccess(manager, Access.lvl3);
+            var isAccess = Authentication.TryAccess(manager, 9);
             Console.WriteLine(isAccess);
         }
     }
