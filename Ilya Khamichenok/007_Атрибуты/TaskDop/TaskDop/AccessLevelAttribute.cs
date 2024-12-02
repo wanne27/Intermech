@@ -9,10 +9,6 @@
             {
                 return _access;
             }
-            set
-            {
-                _access = value;
-            }
         }
 
         public AccessLevelAttribute(Access access)
