@@ -7,10 +7,10 @@ namespace TaskDop
         private string[] arr = new string[10000000];
         private bool disposed = false;
 
-        int i;
+        
         public BigData()
         {
-            for (i = 0; i < 10000000; i++)
+            for (int i = 0; i < 10000000; i++)
             {
                 arr[i] = i.ToString("0000000000000000");
             }
