@@ -64,70 +64,70 @@
             flowLayoutPanel1.Location = new Point(11, 139);
             flowLayoutPanel1.Margin = new Padding(0);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(1740, 910);
+            flowLayoutPanel1.Size = new Size(1438, 910);
             flowLayoutPanel1.TabIndex = 2;
             // 
             // panel43
             // 
-            panel43.Location = new Point(1, 1);
-            panel43.Margin = new Padding(1);
+            panel43.Location = new Point(0, 0);
+            panel43.Margin = new Padding(0);
             panel43.Name = "panel43";
-            panel43.Size = new Size(240, 150);
+            panel43.Size = new Size(200, 150);
             panel43.TabIndex = 27;
             // 
             // panel1
             // 
-            panel1.Location = new Point(243, 1);
+            panel1.Location = new Point(201, 1);
             panel1.Margin = new Padding(1);
             panel1.Name = "panel1";
-            panel1.Size = new Size(240, 150);
+            panel1.Size = new Size(200, 150);
             panel1.TabIndex = 28;
             // 
             // panel2
             // 
-            panel2.Location = new Point(485, 1);
+            panel2.Location = new Point(403, 1);
             panel2.Margin = new Padding(1);
             panel2.Name = "panel2";
-            panel2.Size = new Size(240, 150);
+            panel2.Size = new Size(200, 150);
             panel2.TabIndex = 28;
             // 
             // panel3
             // 
-            panel3.Location = new Point(727, 1);
+            panel3.Location = new Point(605, 1);
             panel3.Margin = new Padding(1);
             panel3.Name = "panel3";
-            panel3.Size = new Size(240, 150);
+            panel3.Size = new Size(200, 150);
             panel3.TabIndex = 28;
             // 
             // panel4
             // 
-            panel4.Location = new Point(969, 1);
+            panel4.Location = new Point(807, 1);
             panel4.Margin = new Padding(1);
             panel4.Name = "panel4";
-            panel4.Size = new Size(240, 150);
+            panel4.Size = new Size(200, 150);
             panel4.TabIndex = 28;
             // 
             // panel5
             // 
-            panel5.Location = new Point(1211, 1);
+            panel5.Location = new Point(1009, 1);
             panel5.Margin = new Padding(1);
             panel5.Name = "panel5";
-            panel5.Size = new Size(240, 150);
-            panel5.TabIndex = 29;
+            panel5.Size = new Size(200, 150);
+            panel5.TabIndex = 28;
             // 
             // panel6
             // 
-            panel6.Location = new Point(1452, 0);
-            panel6.Margin = new Padding(0);
+            panel6.Location = new Point(1211, 1);
+            panel6.Margin = new Padding(1);
             panel6.Name = "panel6";
-            panel6.Size = new Size(240, 150);
-            panel6.TabIndex = 29;
+            panel6.Size = new Size(200, 150);
+            panel6.TabIndex = 28;
             // 
             // label1
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Verdana", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label1.Location = new Point(1306, 103);
+            label1.Location = new Point(1085, 103);
             label1.Name = "label1";
             label1.Size = new Size(67, 18);
             label1.TabIndex = 3;
@@ -137,7 +137,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Verdana", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label2.Location = new Point(95, 103);
+            label2.Location = new Point(67, 103);
             label2.Name = "label2";
             label2.Size = new Size(70, 18);
             label2.TabIndex = 4;
@@ -147,7 +147,7 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Verdana", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label3.Location = new Point(346, 103);
+            label3.Location = new Point(271, 103);
             label3.Name = "label3";
             label3.Size = new Size(65, 18);
             label3.TabIndex = 5;
@@ -157,7 +157,7 @@
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Verdana", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label4.Location = new Point(575, 103);
+            label4.Location = new Point(463, 103);
             label4.Name = "label4";
             label4.Size = new Size(102, 18);
             label4.TabIndex = 6;
@@ -167,7 +167,7 @@
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Verdana", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label5.Location = new Point(804, 103);
+            label5.Location = new Point(677, 103);
             label5.Name = "label5";
             label5.Size = new Size(82, 18);
             label5.TabIndex = 7;
@@ -177,7 +177,7 @@
             // 
             label6.AutoSize = true;
             label6.Font = new Font("Verdana", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label6.Location = new Point(1058, 103);
+            label6.Location = new Point(884, 103);
             label6.Name = "label6";
             label6.Size = new Size(57, 18);
             label6.TabIndex = 8;
@@ -187,7 +187,7 @@
             // 
             label7.AutoSize = true;
             label7.Font = new Font("Verdana", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label7.Location = new Point(1539, 103);
+            label7.Location = new Point(1262, 103);
             label7.Name = "label7";
             label7.Size = new Size(80, 18);
             label7.TabIndex = 9;
@@ -230,10 +230,10 @@
             // flowLayoutPanel2
             // 
             flowLayoutPanel2.AllowDrop = true;
-            flowLayoutPanel2.Location = new Point(1751, 140);
+            flowLayoutPanel2.Location = new Point(1479, 139);
             flowLayoutPanel2.Margin = new Padding(0);
             flowLayoutPanel2.Name = "flowLayoutPanel2";
-            flowLayoutPanel2.Size = new Size(733, 910);
+            flowLayoutPanel2.Size = new Size(460, 910);
             flowLayoutPanel2.TabIndex = 13;
             flowLayoutPanel2.DragDrop += flowLayoutPanel2_DragDrop;
             flowLayoutPanel2.DragEnter += flowLayoutPanel2_DragEnter;
@@ -241,9 +241,9 @@
             // button3
             // 
             button3.Font = new Font("Verdana", 12F);
-            button3.Location = new Point(1751, 73);
+            button3.Location = new Point(1479, 73);
             button3.Name = "button3";
-            button3.Size = new Size(271, 48);
+            button3.Size = new Size(183, 48);
             button3.TabIndex = 14;
             button3.Text = "Добавить событие";
             button3.UseVisualStyleBackColor = true;
@@ -252,9 +252,9 @@
             // button4
             // 
             button4.Font = new Font("Verdana", 12F);
-            button4.Location = new Point(2213, 73);
+            button4.Location = new Point(1754, 73);
             button4.Name = "button4";
-            button4.Size = new Size(271, 48);
+            button4.Size = new Size(183, 48);
             button4.TabIndex = 15;
             button4.Text = "Удалить cобытие";
             button4.UseVisualStyleBackColor = true;
@@ -262,9 +262,9 @@
             // 
             // Form1
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
-            AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(2493, 1081);
+            AutoScaleMode = AutoScaleMode.None;
+            AutoScroll = true;
+            ClientSize = new Size(1957, 1061);
             Controls.Add(button4);
             Controls.Add(button3);
             Controls.Add(flowLayoutPanel2);
@@ -279,6 +279,7 @@
             Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(flowLayoutPanel1);
+            MaximizeBox = false;
             Name = "Form1";
             Text = "Form1";
             FormClosing += Form1_FormClosing;

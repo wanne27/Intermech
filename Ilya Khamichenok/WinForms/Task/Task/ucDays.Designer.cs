@@ -45,7 +45,7 @@
             panel1.Location = new Point(1, 1);
             panel1.Margin = new Padding(0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(238, 148);
+            panel1.Size = new Size(198, 148);
             panel1.TabIndex = 0;
             panel1.MouseDown += panel1_MouseDown;
             // 
@@ -65,7 +65,7 @@
             textBox1.Location = new Point(3, 50);
             textBox1.Multiline = true;
             textBox1.Name = "textBox1";
-            textBox1.Size = new Size(232, 95);
+            textBox1.Size = new Size(192, 95);
             textBox1.TabIndex = 3;
             textBox1.TextChanged += textBox1_TextChanged;
             // 
@@ -73,7 +73,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            label1.Location = new Point(196, 10);
+            label1.Location = new Point(161, 16);
             label1.Name = "label1";
             label1.Size = new Size(25, 20);
             label1.TabIndex = 1;
@@ -85,9 +85,10 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(panel1);
+            Margin = new Padding(0);
             Name = "ucDays";
             Padding = new Padding(1);
-            Size = new Size(240, 150);
+            Size = new Size(200, 150);
             Load += ucDays_Load;
             DragDrop += ucDays_DragDrop;
             DragEnter += ucDays_DragEnter;

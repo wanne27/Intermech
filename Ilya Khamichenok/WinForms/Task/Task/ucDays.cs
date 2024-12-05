@@ -6,12 +6,19 @@
         public string EventText { get; set; }
         public DateTime Date { get; set; }
 
-        public ucDays(string day)
+        /// <summary>
+        /// Кастомный control, представляет собой день месяца
+        /// </summary>
+        public ucDays()
         {
             InitializeComponent();
-            label1.Text = day;
+            label1.Text = "";
         }
 
+        /// <summary>
+        /// Кастомный control, представляет собой день месяца
+        /// </summary>
+        /// <param name="day">DateTim, дата дня</param>
         public ucDays(DateTime day)
         {
             InitializeComponent();
@@ -19,6 +26,12 @@
             Date = day;
         }
 
+        /// <summary>
+        /// Кастомный control, представляет собой день месяца
+        /// </summary>
+        /// <param name="day">DateTim, дата дня</param>
+        /// <param name="text">Текст заметки</param>
+        /// <param name="category">Категория заметки</param>
         public ucDays(DateTime day, string text, string category)
         {
             InitializeComponent();
@@ -72,18 +85,7 @@
 
         private void ChangeColor(string category)
         {
-            switch (category)
-            {
-                case "Учеба":
-                    panel1.BackColor = Color.Red;
-                    break;
-                case "Работа":
-                    panel1.BackColor = Color.Blue;
-                    break;
-                case "Спорт":
-                    panel1.BackColor = Color.Orange;
-                    break;
-            }
+            panel1.BackColor = ColorHelper.GetColorByCategory(category);
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)

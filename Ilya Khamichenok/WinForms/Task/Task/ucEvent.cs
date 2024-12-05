@@ -2,6 +2,11 @@
 {
     public partial class ucEvent : UserControl
     {
+        private string[] events = { "Учеба", "Работа", "Спорт" };
+
+        /// <summary>
+        /// Текст заметки
+        /// </summary>
         public string EventText
         {
             get
@@ -14,6 +19,9 @@
             }
         }
 
+        /// <summary>
+        /// Выбранный элемент категории заметки
+        /// </summary>
         public string CheckedElement
         {
             get
@@ -33,11 +41,23 @@
             }
         }
 
+        /// <summary>
+        /// Кастомный control события/заметки
+        /// </summary>
+        /// <param name="checkedElement">Категория заметки</param>
+        public ucEvent(string checkedElement)
+        {
+            InitializeComponent();
+            checkedListBoxEvent.Items.AddRange(events);
+            var index = Array.FindIndex(events, row => row.Contains(checkedElement));
+            checkedListBoxEvent.SetItemChecked(index, true);
+        }
+        /// <summary>
+        /// Кастомный control события/заметки
+        /// </summary>
         public ucEvent()
         {
             InitializeComponent();
-
-            string[] events = { "Учеба", "Работа", "Спорт" };
             checkedListBoxEvent.Items.AddRange(events);
         }
 
@@ -64,18 +84,7 @@
         {
             if (checkedListBoxEvent.CheckedItems.Count > 0)
             {
-                switch (checkedListBoxEvent.CheckedItems[0].ToString())
-                {
-                    case "Учеба":
-                        panel1.BackColor = Color.Red;
-                        break;
-                    case "Работа":
-                        panel1.BackColor = Color.Blue;
-                        break;
-                    case "Спорт":
-                        panel1.BackColor = Color.Orange;
-                        break;
-                }
+                panel1.BackColor = ColorHelper.GetColorByCategory(checkedListBoxEvent.CheckedItems[0].ToString());
             }
         }
     }

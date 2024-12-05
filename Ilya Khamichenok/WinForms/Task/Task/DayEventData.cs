@@ -1,5 +1,9 @@
 ﻿namespace Task
 {
+    /// <summary>
+    /// Класс который хранит дату, текст, категорию.
+    /// Используется при сериализации в json
+    /// </summary>
     public class DayEventData
     {
         public DateTime DateTime { get; set; }

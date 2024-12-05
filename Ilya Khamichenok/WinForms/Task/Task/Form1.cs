@@ -6,7 +6,7 @@ namespace Task
     public partial class Form1 : Form
     {
         private int year, month;
-
+        private readonly string fileName = "events.json";
         public Form1()
         {
             InitializeComponent();
@@ -15,54 +15,62 @@ namespace Task
         private void Form1_Load(object sender, EventArgs e)
         {
             ShowDays(DateTime.Now.Month, DateTime.Now.Year);
-
         }
 
         private void ShowDays(int month, int year)
         {
-            var json = File.ReadAllText("events.json");
-            if (File.Exists("events.json"))
+            var eventList = GetEventList();
+
+            flowLayoutPanel1.Controls.Clear();
+            this.month = month;
+            this.year = year;
+
+            var monthName = new DateTimeFormatInfo().GetMonthName(month);
+            lbMonth.Text = monthName.ToString().ToUpper() + " " + year;
+            var startedTheMonth = new DateTime(year, month, 1);
+            var day = DateTime.DaysInMonth(year, month);
+            var week = Convert.ToInt32(startedTheMonth.DayOfWeek.ToString("d"));
+
+            if (week == 0)
             {
-                List<DayEventData> eventList = JsonSerializer.Deserialize<List<DayEventData>>(json);
+                week = 6;
+            }
+            else
+            {
+                week -= 1;
+            }
 
-                flowLayoutPanel1.Controls.Clear();
-                this.month = month;
-                this.year = year;
+            for (int i = 0; i < week; i++)
+            {
+                var uc = new ucDays();
+                flowLayoutPanel1.Controls.Add(uc);
+            }
 
-                var monthName = new DateTimeFormatInfo().GetMonthName(month);
-                lbMonth.Text = monthName.ToString().ToUpper() + " " + year;
-                var startedTheMonth = new DateTime(year, month, 1);
-                var day = DateTime.DaysInMonth(year, month);
-                var week = Convert.ToInt32(startedTheMonth.DayOfWeek.ToString("d"));
-
-                if (week == 0)
+            for (int i = 1; i <= day; i++)
+            {
+                var dateTime = new DateTime(year, month, i);
+                if (eventList.Count > 0 && eventList.Where(e => e.DateTime == dateTime).FirstOrDefault() != null)
                 {
-                    week = 6;
+                    var even = eventList.Where(e => e.DateTime == dateTime).FirstOrDefault();
+                    flowLayoutPanel1.Controls.Add(new ucDays(dateTime, even.Text, even.Category));
                 }
                 else
                 {
-                    week -= 1;
+                    flowLayoutPanel1.Controls.Add(new ucDays(dateTime));
                 }
+            }
+        }
 
-                for (int i = 0; i < week; i++)
-                {
-                    var uc = new ucDays("");
-                    flowLayoutPanel1.Controls.Add(uc);
-                }
-
-                for (int i = 1; i <= day; i++)
-                {
-                    var dateTime = new DateTime(year, month, i);
-                    if (eventList.Count > 0 && eventList.Where(e => e.DateTime == dateTime).FirstOrDefault() != null)
-                    {
-                        var even = eventList.Where(e => e.DateTime == dateTime).FirstOrDefault();
-                        flowLayoutPanel1.Controls.Add(new ucDays(dateTime, even.Text, even.Category));
-                    }
-                    else
-                    {
-                        flowLayoutPanel1.Controls.Add(new ucDays(dateTime));
-                    }
-                }
+        private List<DayEventData> GetEventList()
+        {     
+            if (File.Exists(fileName))
+            {
+                var json = File.ReadAllText(fileName);
+                return JsonSerializer.Deserialize<List<DayEventData>>(json);
+            }
+            else
+            {
+                return new List<DayEventData>();
             }
         }
 
@@ -124,25 +132,15 @@ namespace Task
 
         private void Save()
         {
-            List<DayEventData> dayEvents = new List<DayEventData>();
+            var eventList = GetEventList();
 
-            if (File.Exists("events.json"))
-            {
-                string json = File.ReadAllText("events.json");
-                dayEvents = JsonSerializer.Deserialize<List<DayEventData>>(json);
-            }
-            else
-            {
-                dayEvents = new List<DayEventData>();
-            }
-
-            dayEvents.RemoveAll(e => e.DateTime.Month == month && e.DateTime.Year == year);
+            eventList.RemoveAll(e => e.DateTime.Month == month && e.DateTime.Year == year);
 
             foreach (var ucDay in flowLayoutPanel1.Controls.OfType<ucDays>())
             {
                 if (!string.IsNullOrWhiteSpace(ucDay.EventText))
                 {
-                    dayEvents.Add(new DayEventData
+                    eventList.Add(new DayEventData
                     {
                         DateTime = ucDay.Date,
                         Text = ucDay.EventText,
@@ -151,8 +149,8 @@ namespace Task
                 }
             }
 
-            var jsonSave = JsonSerializer.Serialize(dayEvents, new JsonSerializerOptions { WriteIndented = true });
-            File.WriteAllText("events.json", jsonSave);
+            var jsonSave = JsonSerializer.Serialize(eventList, new JsonSerializerOptions { WriteIndented = true });
+            File.WriteAllText(fileName, jsonSave);
         }
 
         private void flowLayoutPanel2_DragEnter(object sender, DragEventArgs e)
@@ -172,16 +170,15 @@ namespace Task
             if (e.Data.GetDataPresent(typeof(ucDays)))
             {
                 var eventControl = (ucDays)e.Data.GetData(typeof(ucDays));
+                var ucEvent = new ucEvent(eventControl.CheckedElement);
 
-                var ucEvent = new ucEvent();
                 ucEvent.EventText = eventControl.EventText;
                 ucEvent.CheckedElement = eventControl.CheckedElement;
-
                 flowLayoutPanel2.Controls.Add(ucEvent);
 
-                var index = flowLayoutPanel1.Controls.GetChildIndex(eventControl);
-               
-                var emptyDayControl = new ucDays(eventControl.Date);                
+                var index = flowLayoutPanel1.Controls.GetChildIndex(eventControl);               
+                var emptyDayControl = new ucDays(eventControl.Date);
+                
                 flowLayoutPanel1.Controls.Remove(eventControl);
                 flowLayoutPanel1.Controls.Add(emptyDayControl);
                 flowLayoutPanel1.Controls.SetChildIndex(emptyDayControl, index);

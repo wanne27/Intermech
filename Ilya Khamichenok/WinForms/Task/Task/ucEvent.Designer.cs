@@ -70,6 +70,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             Controls.Add(panel1);
+            Margin = new Padding(0);
             Name = "ucEvent";
             Padding = new Padding(1);
             Size = new Size(226, 100);
