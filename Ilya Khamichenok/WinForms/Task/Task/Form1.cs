@@ -161,9 +161,10 @@ namespace Task
 
         private void flowLayoutPanel2_DragDrop(object sender, DragEventArgs e)
         {
-            if (e.Data.GetDataPresent(typeof(ucDays)))
+            var eventControl = (ucDays)e.Data.GetData(typeof(ucDays));
+
+            if (eventControl != null)
             {
-                var eventControl = (ucDays)e.Data.GetData(typeof(ucDays));
                 var ucEvent = new ucEvent(eventControl.CheckedElement);
 
                 ucEvent.EventText = eventControl.EventText;
