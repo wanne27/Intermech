@@ -1,3 +1,4 @@
+using System;
 using System.Globalization;
 using System.Text.Json;
 
@@ -5,8 +6,10 @@ namespace Task
 {
     public partial class Form1 : Form
     {
-        private int year, month;
+        private int year;
+        private int month;
         private readonly string fileName = "events.json";
+
         public Form1()
         {
             InitializeComponent();
@@ -31,27 +34,19 @@ namespace Task
             var day = DateTime.DaysInMonth(year, month);
             var week = Convert.ToInt32(startedTheMonth.DayOfWeek.ToString("d"));
 
-            if (week == 0)
-            {
-                week = 6;
-            }
-            else
-            {
-                week -= 1;
-            }
+            week = week == 0 ? 6 : week -= 1;
 
-            for (int i = 0; i < week; i++)
-            {
-                var uc = new ucDays();
-                flowLayoutPanel1.Controls.Add(uc);
-            }
+            var ucDaysArray = Enumerable.Repeat(new ucDays(), week).ToArray();
+
+            flowLayoutPanel1.Controls.AddRange(ucDaysArray);
 
             for (int i = 1; i <= day; i++)
             {
                 var dateTime = new DateTime(year, month, i);
-                if (eventList.Count > 0 && eventList.Where(e => e.DateTime == dateTime).FirstOrDefault() != null)
-                {
-                    var even = eventList.Where(e => e.DateTime == dateTime).FirstOrDefault();
+                var even = eventList.Where(e => e.DateTime == dateTime).FirstOrDefault();
+
+                if (eventList.Count > 0 && even != null)
+                {                   
                     flowLayoutPanel1.Controls.Add(new ucDays(dateTime, even.Text, even.Category));
                 }
                 else
@@ -63,9 +58,9 @@ namespace Task
 
         private List<DayEventData> GetEventList()
         {     
-            if (File.Exists(fileName))
+            if (File.Exists(this.fileName))
             {
-                var json = File.ReadAllText(fileName);
+                var json = File.ReadAllText(this.fileName);
                 return JsonSerializer.Deserialize<List<DayEventData>>(json);
             }
             else
@@ -76,8 +71,7 @@ namespace Task
 
         private void AddEvent()
         {
-            var uc = new ucEvent();
-            flowLayoutPanel2.Controls.Add(uc);
+            flowLayoutPanel2.Controls.Add(new ucEvent());
         }
 
         private void RemoveEvent()
@@ -92,27 +86,27 @@ namespace Task
         private void button1_Click(object sender, EventArgs e)
         {
             Save();
-            month -= 1;
-            if (month < 1)
+            this.month -= 1;
+            if (this.month < 1)
             {
-                month = 12;
-                year -= 1;
+                this.month = 12;
+                this.year -= 1;
             }
 
-            ShowDays(month, year);
+            ShowDays(this.month, this.year);
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             Save();
-            month += 1;
-            if (month > 12)
+            this.month += 1;
+            if (this.month > 12)
             {
-                month = 1;
-                year += 1;
+                this.month = 1;
+                this.year += 1;
             }
 
-            ShowDays(month, year);
+            ShowDays(this.month, this.year);
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -150,7 +144,7 @@ namespace Task
             }
 
             var jsonSave = JsonSerializer.Serialize(eventList, new JsonSerializerOptions { WriteIndented = true });
-            File.WriteAllText(fileName, jsonSave);
+            File.WriteAllText(this.fileName, jsonSave);
         }
 
         private void flowLayoutPanel2_DragEnter(object sender, DragEventArgs e)

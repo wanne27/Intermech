@@ -30,10 +30,8 @@
                 {
                     return checkedListBoxEvent.CheckedItems[0].ToString();
                 }
-                else
-                {
-                    return " ";
-                }
+
+                return String.Empty;
             }
             set
             {
@@ -48,8 +46,8 @@
         public ucEvent(string checkedElement)
         {
             InitializeComponent();
-            checkedListBoxEvent.Items.AddRange(events);
-            var index = Array.FindIndex(events, row => row.Contains(checkedElement));
+            checkedListBoxEvent.Items.AddRange(this.events);
+            var index = Array.FindIndex(this.events, row => row.Contains(checkedElement));
             checkedListBoxEvent.SetItemChecked(index, true);
         }
         /// <summary>
@@ -58,7 +56,7 @@
         public ucEvent()
         {
             InitializeComponent();
-            checkedListBoxEvent.Items.AddRange(events);
+            checkedListBoxEvent.Items.AddRange(this.events);
         }
 
         private void checkedListBoxEvent_ItemCheck(object sender, ItemCheckEventArgs e)
