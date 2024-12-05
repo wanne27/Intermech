@@ -12,7 +12,7 @@
         public ucDays()
         {
             InitializeComponent();
-            label1.Text = "";
+            label1.Text = String.Empty;
         }
 
         /// <summary>

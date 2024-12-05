@@ -20,9 +20,9 @@
                     return Color.Blue;
                 case "Спорт":
                     return Color.Orange;
+                default:
+                    return default(Color);
             }
-
-            return default(Color);
         }
     }
 }

@@ -1,4 +1,3 @@
-using System;
 using System.Globalization;
 using System.Text.Json;
 
@@ -36,9 +35,10 @@ namespace Task
 
             week = week == 0 ? 6 : week -= 1;
 
-            var ucDaysArray = Enumerable.Repeat(new ucDays(), week).ToArray();
-
-            flowLayoutPanel1.Controls.AddRange(ucDaysArray);
+            for (int i = 0; i < week; i++) 
+            {
+                flowLayoutPanel1.Controls.Add(new ucDays());
+            }
 
             for (int i = 1; i <= day; i++)
             {
@@ -63,10 +63,8 @@ namespace Task
                 var json = File.ReadAllText(this.fileName);
                 return JsonSerializer.Deserialize<List<DayEventData>>(json);
             }
-            else
-            {
-                return new List<DayEventData>();
-            }
+
+            return new List<DayEventData>();            
         }
 
         private void AddEvent()
@@ -171,7 +169,7 @@ namespace Task
                 ucEvent.CheckedElement = eventControl.CheckedElement;
                 flowLayoutPanel2.Controls.Add(ucEvent);
 
-                var index = flowLayoutPanel1.Controls.GetChildIndex(eventControl);               
+                var index = flowLayoutPanel1.Controls.GetChildIndex(eventControl);             
                 var emptyDayControl = new ucDays(eventControl.Date);
                 
                 flowLayoutPanel1.Controls.Remove(eventControl);

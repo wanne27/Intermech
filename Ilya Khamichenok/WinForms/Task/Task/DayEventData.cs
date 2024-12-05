@@ -6,8 +6,19 @@
     /// </summary>
     public class DayEventData
     {
+        /// <summary>
+        /// Дата
+        /// </summary>
         public DateTime DateTime { get; set; }
-        public string Text { get; set; }
-        public string Category { get; set; }
+
+        /// <summary>
+        /// Текст заметки или события
+        /// </summary>
+        public string Text { get; set; } = string.Empty;
+
+        /// <summary>
+        /// Категория события
+        /// </summary>
+        public string Category { get; set; } = string.Empty;
     }
 }
